@@ -1,0 +1,25 @@
+[color]
+ui = auto
+
+[alias]
+st = status
+ci = commit
+cia = commit -a
+co = checkout
+br = branch
+reup = stash
+smoke = stash pop
+coathanger = rebase --abort
+handy = rebase origin
+fucked = rebase --interactive origin
+ff = merge --ff-only
+
+[user]
+	name = Lance Cooper
+	email = lance.m.cooper@gmail.com
+[github]
+	user = deathwish
+[push]
+	default = current
+[apply]
+	whitespace = fix
