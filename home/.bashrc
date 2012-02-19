@@ -1,34 +1,38 @@
-export PATH=$PATH:/usr/local/bin:/usr/local/mysql/bin/:/usr/local/sbin
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
 
-alias ls='gls --color=auto'
-alias sed='gsed'
-#also, make nano not auto line wrap!
-alias nano='nano -w'
-alias n='nano'
-#i don't care for vi
-export EDITOR=nano
+#
+# Source all configs of a given type from ~/.bash.d.
+# Example: When run on demeter, a Linux system,
+# source_config_for 'aliases' would load the following files
+# if they exist in ~/.bash.d:
+#   linux/aliases.sh
+#   demeter/aliases.sh
+#   localhost/aliases.sh
+#   aliases.sh
+#
+source_config_for() {
+	CONFIG_NAME=$1
+	CONFIG_TYPES=( `uname | tr 'A-Z' 'a-z'` `hostname` 'localhost' '' )
+	for CONFIG_TYPE in "${CONFIG_TYPES[@]}"
+	do
+		CONFIG_PATH="${HOME}/.bash.d/${CONFIG_TYPE}/${CONFIG_NAME}.sh"
+		if [ -f "${CONFIG_PATH}" ]
+		then
+			source $CONFIG_PATH
+		fi
+	done
+}
 
-# If this is an xterm set the title to user@host:dir
-case $TERM in
-    ansi|vt100|linux)
-        #set a fancier prompt
-        PS1="\033[46;1;34m\u@\h:\w\$ \033[0m"
-        ;;
-    xterm|rxvt-unicode|rxvt)
-        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-        PS1="\u@\h:\w\$ "
-        ;;
-    dumb)
-       #if we're using a dumb (e.g. M-x shell) terminal, purge a couple things
-       PS1='\u@\h:\w\$ '
-       alias ls='ls --color=never'
-        ;;
-esac
+source_config_for 'all_shells'
 
-# load rvm
-[[ -s "/Users/LCooper/.rvm/scripts/rvm" ]] && source "/Users/LCooper/.rvm/scripts/rvm"
-
-# load completion
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
+# If running interactively, then:
+if [ "${PS1}" ]
+then
+	source_config_for 'evals'
+	source_config_for 'aliases'
+	source_config_for 'exports'
+	source_config_for 'completion'
+	source_config_for 'terminal_types'
 fi
