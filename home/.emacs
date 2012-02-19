@@ -1,5 +1,6 @@
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
+
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
@@ -13,6 +14,7 @@
  '(compilation-scroll-output t)
  '(compilation-skip-threshold 2)
  '(compilation-window-height 10)
+ '(ctypes-install t nil (ctypes))
  '(current-language-environment "English")
  '(default-input-method "latin-1-prefix")
  '(display-battery-mode t)
@@ -37,6 +39,7 @@
  '(normal-erase-is-backspace t)
  '(nxml-auto-insert-xml-declaration-flag t)
  '(nxml-slash-auto-complete-flag t)
+ '(perldoc-define-F1 t nil (perldoc))
  '(scroll-bar-mode (quote right))
  '(show-paren-mode t nil (paren))
  '(size-indication-mode t)
@@ -52,17 +55,30 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(default ((t (:stipple nil :background "#999999" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :family "ProggySquareTTSZ")))))
-(if (load "folding" 'nomessage 'noerror)
 
+;; Aquamacs/OS X specific stuff
+(if (boundp 'aquamacs-version)
+	(progn
+	  ;; No out of the box ctags here.
+	  (defvar semantic-ectag-program "/usr/local/Cellar/ctags/5.8/bin/ctags"))
+
+  ;; nxhml (HTML ERB template support) is included in auqamacs, but not debian builds
+  (load "~/.emacs.d/nxhtml/autostart.el")
+  (add-to-list 'load-path "~/.emacs.d/nxhtml/util")
+)
+
+(if (load "folding" 'nomessage 'noerror)
     (folding-mode-add-find-file-hook))
 (defalias 'perl-mode 'cperl-mode)
 (setq auto-mode-alist (cons '("\\.php5$" . php-mode) auto-mode-alist))
+
 ;;load the Tuareg OCaml mode
 (setq load-path (cons "/home/lance/.emacs.d/tuareg-mode-1.45.3" load-path))
 (setq auto-mode-alist (cons '("\\.ml\\w?" . tuareg-mode) 
 auto-mode-alist))
   (autoload 'tuareg-mode "tuareg" "Major mode for editing Caml code" t)
     (autoload 'camldebug "camldebug" "Run the Caml debugger" t)
+
 ;;indent with spaces
 (setq indent-tabs-mode nil)
 (setq c-mode-hook
@@ -88,15 +104,15 @@ auto-mode-alist))
 
 ;; ruby mode
 (defun ruby-eval-buffer () (interactive)
-"Evaluate the buffer with ruby."
-(shell-command-on-region (point-min) (point-max) "ruby"))
+  "Evaluate the buffer with ruby."
+  (shell-command-on-region (point-min) (point-max) "ruby"))
 
 (defun my-ruby-mode-hook ()
-(font-lock-mode t)
-(setq standard-indent 2)
-(require 'ruby-electric)
-(ruby-electric-mode t)
-(define-key ruby-mode-map "\C-c\C-a" 'ruby-eval-buffer))
+  (font-lock-mode t)
+  (setq standard-indent 2)
+  (require 'ruby-electric)
+  (ruby-electric-mode t)
+  (define-key ruby-mode-map "\C-c\C-a" 'ruby-eval-buffer))
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
 
 ;; Rake files are ruby, too, as are gemspecs, rackup files, etc.
@@ -113,9 +129,6 @@ auto-mode-alist))
 (require 'rinari)
 (setq rinari-tags-file-name "TAGS")
 
-;; nxml (HTML ERB template support)
-;; (load "~/.emacs.d/nxhtml/autostart.el")
-;; (add-to-list 'load-path "~/.emacs.d/nxhtml/util")
 (require 'mumamo-fun)
 (setq
       nxhtml-global-minor-mode t
@@ -129,8 +142,8 @@ auto-mode-alist))
 
 ;; CEDET
 ;; (add-to-list 'load-path "~/.emacs.d/cedet-1.0-pre6/common")
-(defvar semantic-ectag-program "/usr/local/Cellar/ctags/5.8/bin/ctags")
 (load-file "~/.emacs.d/cedet-1.0/common/cedet.el")
+(load-file "~/.emacs.d/cedet-1.0/contrib/semantic-ectag-scala.el")
 (global-ede-mode 1)                      ; Enable the Project management system
 (semantic-load-enable-code-helpers)
 (semantic-load-enable-gaudy-code-helpers)      ; Enable prototype help and smart completion 
@@ -151,7 +164,14 @@ auto-mode-alist))
 (require 'feature-mode)
 (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 
-;; rvm.el
-(add-to-list 'load-path "~/.emacs.d/rvm.el")
-(require 'rvm)
-(rvm-use-default) ;; use rvm’s default ruby for the current Emacs session
+;; Scala Mode
+(let ((path "~/packages/scala-2.8.1.final/misc/scala-tool-support/emacs/"))
+  (setq load-path (cons path load-path))
+  (load "scala-mode-auto.el"))
+
+(defun scala-turnoff-indent-tabs-mode ()
+  (setq indent-tabs-mode nil))
+
+;; scala mode hooks
+(add-hook 'scala-mode-hook 'scala-turnoff-indent-tabs-mode)
+
