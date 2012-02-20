@@ -1,2 +1,6 @@
 *~
 /home/.bash.d/localhost/*
+/home/.emacs.d/auto-save-list
+/home/.emacs.d/el-get
+/home/.emacs.d/elpa
+/home/.emacs.d/thumbs

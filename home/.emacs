@@ -56,28 +56,90 @@
   ;; If there is more than one, they won't work right.
  '(default ((t (:stipple nil :background "#999999" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :family "ProggySquareTTSZ")))))
 
+;;
+;; ELPA and el-get auto-initializing wedge
+;; See http://bytes.inso.cc/2011/08/13/auto-installing-packages-in-emacs-with-elpa-and-el-get/
+;;
+
+;; derived from ELPA installation
+;; http://tromey.com/elpa/install.html
+(defun eval-url (url)
+  (let ((buffer (url-retrieve-synchronously url)))
+  (save-excursion
+    (set-buffer buffer)
+    (goto-char (point-min))
+    (re-search-forward "^$" nil 'move)
+    (eval-region (point) (point-max))
+    (kill-buffer (current-buffer)))))
+
+;; Load ELPA
+(add-to-list 'load-path "~/.emacs.d/elpa")
+
+(defun install-elpa ()
+  (eval-url "http://tromey.com/elpa/package-install.el"))
+
+(if (require 'package nil t)
+    (progn
+      ;; Emacs 24+ includes ELPA, but requires some extra setup
+      ;; to use the (better) tromey repo
+      (if (>= emacs-major-version 24)
+          (setq package-archives
+                (cons '("tromey" . "http://tromey.com/elpa/")
+                package-archives)))
+      (package-initialize))
+  (install-elpa))
+
+;; Load el-get
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+(defun install-el-get ()
+  (eval-url
+   "https://github.com/dimitri/el-get/raw/master/el-get-install.el"))
+
+(unless (require 'el-get nil t)
+  (install-el-get))
+
+;; extra recipes for packages unknown to el-get (yet)
+(setq el-get-sources
+	  '((:name css-mode :type elpa)
+		(:name js2-mode-mooz
+			   :type git
+			   :url "git://github.com/mooz/js2-mode.git"
+			   :load "js2-mode.el"
+			   :compile ("js2-mode.el")
+			   :features js2-mode)
+		(:name feature-mode
+			   :type git
+			   :url "git://github.com/michaelklishin/cucumber.el"
+			   :load "feature-mode.el"
+			   :compile ("feature-mode.el")
+			   :features feature-mode)))
+
+;; list all packages you want installed
+(setq my-el-get-packages
+	  (append
+	   '(css-mode js2-mode-mooz ecb nxhtml rinari scala-mode rvm tuareg-mode feature-mode)
+	   (mapcar 'el-get-source-name el-get-sources)))
+
+(el-get 'sync my-el-get-packages)
+
 ;; Aquamacs/OS X specific stuff
 (if (boundp 'aquamacs-version)
 	(progn
 	  ;; No out of the box ctags here.
-	  (defvar semantic-ectag-program "/usr/local/Cellar/ctags/5.8/bin/ctags"))
-
-  ;; nxhml (HTML ERB template support) is included in auqamacs, but not debian builds
-  (load "~/.emacs.d/nxhtml/autostart.el")
-  (add-to-list 'load-path "~/.emacs.d/nxhtml/util")
-)
+	  (defvar semantic-ectag-program "/usr/local/Cellar/ctags/5.8/bin/ctags")))
 
 (if (load "folding" 'nomessage 'noerror)
-    (folding-mode-add-find-file-hook))
+	(folding-mode-add-find-file-hook))
+
 (defalias 'perl-mode 'cperl-mode)
+
 (setq auto-mode-alist (cons '("\\.php5$" . php-mode) auto-mode-alist))
 
 ;;load the Tuareg OCaml mode
-(setq load-path (cons "/home/lance/.emacs.d/tuareg-mode-1.45.3" load-path))
-(setq auto-mode-alist (cons '("\\.ml\\w?" . tuareg-mode) 
-auto-mode-alist))
-  (autoload 'tuareg-mode "tuareg" "Major mode for editing Caml code" t)
-    (autoload 'camldebug "camldebug" "Run the Caml debugger" t)
+(setq auto-mode-alist (cons '("\\.ml\\w?" . tuareg-mode) auto-mode-alist))
+(autoload 'tuareg-mode "tuareg" "Major mode for editing Caml code" t)
+(autoload 'camldebug "camldebug" "Run the Caml debugger" t)
 
 ;;indent with spaces
 (setq indent-tabs-mode nil)
@@ -125,7 +187,6 @@ auto-mode-alist))
 (add-to-list 'auto-mode-alist '("Vagrantfile$" . ruby-mode))
 
 ;; Rinari
-(add-to-list 'load-path "~/.emacs.d/rinari")
 (require 'rinari)
 (setq rinari-tags-file-name "TAGS")
 
@@ -141,37 +202,29 @@ auto-mode-alist))
 (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . mumamo-alias-eruby-html-mumamo-mode))
 
 ;; CEDET
-;; (add-to-list 'load-path "~/.emacs.d/cedet-1.0-pre6/common")
-(load-file "~/.emacs.d/cedet-1.0/common/cedet.el")
-(load-file "~/.emacs.d/cedet-1.0/contrib/semantic-ectag-scala.el")
+(require 'semantic)
+(setq semantic-load-turn-useful-things-on t)
+;;(semantic-load-enable-code-helpers)
+;;(semantic-load-enable-gaudy-code-helpers)      ; Enable prototype help and smart completion
+;;(global-srecode-minor-mode 1)            ; Enable template insertion menu
+;;(semantic-load-enable-primary-exuberent-ctags-support)
+;;(load-file "~/.emacs.d/cedet-1.0/contrib/semantic-ectag-scala.el")
+(require 'cedet)
 (global-ede-mode 1)                      ; Enable the Project management system
-(semantic-load-enable-code-helpers)
-(semantic-load-enable-gaudy-code-helpers)      ; Enable prototype help and smart completion 
-(global-srecode-minor-mode 1)            ; Enable template insertion menu
-(semantic-load-enable-primary-exuberent-ctags-support)
 
 ;; ECB
-(add-to-list 'load-path "~/.emacs.d/ecb-2.40")
 (require 'ecb)
 
 ;; js2 mode
-(setq load-path (append (list (expand-file-name "~/.emacs.d/js2")) load-path))
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; cucumber.el
-(add-to-list 'load-path "~/.emacs.d/cucumber.el")
 (require 'feature-mode)
 (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 
 ;; Scala Mode
-(let ((path "~/packages/scala-2.8.1.final/misc/scala-tool-support/emacs/"))
-  (setq load-path (cons path load-path))
-  (load "scala-mode-auto.el"))
-
+(require 'scala-mode-auto)
 (defun scala-turnoff-indent-tabs-mode ()
   (setq indent-tabs-mode nil))
-
-;; scala mode hooks
 (add-hook 'scala-mode-hook 'scala-turnoff-indent-tabs-mode)
-
