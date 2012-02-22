@@ -99,6 +99,9 @@
 (unless (require 'el-get nil t)
   (install-el-get))
 
+;; directory for per-package init files.
+(setq el-get-user-package-directory "~/.emacs.d/initializers")
+
 ;; extra recipes for packages unknown to el-get (yet)
 (setq el-get-sources
 	  '((:name css-mode :type elpa)
@@ -135,11 +138,6 @@
 (defalias 'perl-mode 'cperl-mode)
 
 (setq auto-mode-alist (cons '("\\.php5$" . php-mode) auto-mode-alist))
-
-;;load the Tuareg OCaml mode
-(setq auto-mode-alist (cons '("\\.ml\\w?" . tuareg-mode) auto-mode-alist))
-(autoload 'tuareg-mode "tuareg" "Major mode for editing Caml code" t)
-(autoload 'camldebug "camldebug" "Run the Caml debugger" t)
 
 ;;indent with spaces
 (setq indent-tabs-mode nil)
@@ -186,21 +184,6 @@
 (add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Vagrantfile$" . ruby-mode))
 
-;; Rinari
-(require 'rinari)
-(setq rinari-tags-file-name "TAGS")
-
-(require 'mumamo-fun)
-(setq
-      nxhtml-global-minor-mode t
-      mumamo-chunk-coloring 'submode-colored
-      nxhtml-skip-welcome t
-      indent-region-mode t
-      rng-nxml-auto-validate-flag nil
-      nxml-degraded t)
-(add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . mumamo-alias-eruby-html-mumamo-mode))
-(add-to-list 'auto-mode-alist '("\\.rhtml\\'" . mumamo-alias-eruby-html-mumamo-mode))
-
 ;; CEDET
 (require 'semantic)
 (setq semantic-load-turn-useful-things-on t)
@@ -211,20 +194,3 @@
 ;;(load-file "~/.emacs.d/cedet-1.0/contrib/semantic-ectag-scala.el")
 (require 'cedet)
 (global-ede-mode 1)                      ; Enable the Project management system
-
-;; ECB
-(require 'ecb)
-
-;; js2 mode
-(autoload 'js2-mode "js2" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-
-;; cucumber.el
-(require 'feature-mode)
-(add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
-
-;; Scala Mode
-(require 'scala-mode-auto)
-(defun scala-turnoff-indent-tabs-mode ()
-  (setq indent-tabs-mode nil))
-(add-hook 'scala-mode-hook 'scala-turnoff-indent-tabs-mode)
