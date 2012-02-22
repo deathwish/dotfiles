@@ -9,7 +9,6 @@
  '(c-label-minimum-indentation 4)
  '(c-syntactic-indentation t)
  '(case-fold-search t)
- '(column-number-mode t)
  '(compilation-context-lines 1)
  '(compilation-scroll-output t)
  '(compilation-skip-threshold 2)
@@ -32,7 +31,6 @@
  '(fringe-mode 0 nil (fringe))
  '(global-font-lock-mode t nil (font-lock))
  '(home-end-enable t)
- '(ido-everywhere t)
  '(js2-basic-offset 3)
  '(js2-cleanup-whitespace t)
  '(mouse-wheel-mode t nil (mwheel))
@@ -41,7 +39,6 @@
  '(nxml-slash-auto-complete-flag t)
  '(perldoc-define-F1 t nil (perldoc))
  '(scroll-bar-mode (quote right))
- '(show-paren-mode t nil (paren))
  '(size-indication-mode t)
  '(speedbar-track-mouse-flag t)
  '(standard-indent 4)
@@ -137,32 +134,25 @@
 
 (defalias 'perl-mode 'cperl-mode)
 
-(setq auto-mode-alist (cons '("\\.php5$" . php-mode) auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.php5$" . php-mode))
 
-;;indent with spaces
-(setq indent-tabs-mode nil)
-(setq c-mode-hook
-    (function (lambda ()
-                (setq indent-tabs-mode nil)
-                (setq c-indent-level 4))))
-(setq objc-mode-hook
-    (function (lambda ()
-                (setq indent-tabs-mode nil)
-                (setq c-indent-level 4))))
-(setq c++-mode-hook
-    (function (lambda ()
-                (setq indent-tabs-mode nil)
-                (setq c-indent-level 4))))
-
-(put 'upcase-region 'disabled nil)
-
-(put 'downcase-region 'disabled nil)
-
-;; Interactively Do Things
-(require 'ido)
-(ido-mode t)
+;; C/C++
+(defun clike-indent-4-spaces ()
+  (setq indent-tabs-mode nil)
+  (setq c-indent-level 4))
+(add-hook 'c-mode-hook 'clike-indent-4-spaces)
+(add-hook 'c++-mode-hook 'clike-indent-4-spaces)
+(add-hook 'objc-mode-hook 'clike-indent-4-spaces)
 
 ;; ruby mode
+(add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Vagrantfile$" . ruby-mode))
+
 (defun ruby-eval-buffer () (interactive)
   "Evaluate the buffer with ruby."
   (shell-command-on-region (point-min) (point-max) "ruby"))
@@ -175,15 +165,6 @@
   (define-key ruby-mode-map "\C-c\C-a" 'ruby-eval-buffer))
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
 
-;; Rake files are ruby, too, as are gemspecs, rackup files, etc.
-(add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Vagrantfile$" . ruby-mode))
-
 ;; CEDET
 (require 'semantic)
 (setq semantic-load-turn-useful-things-on t)
@@ -193,4 +174,26 @@
 ;;(semantic-load-enable-primary-exuberent-ctags-support)
 ;;(load-file "~/.emacs.d/cedet-1.0/contrib/semantic-ectag-scala.el")
 (require 'cedet)
-(global-ede-mode 1)                      ; Enable the Project management system
+(global-ede-mode 1) ; Enable the Project management system
+
+;; Basic settings
+(setq inhibit-startup-message t)
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; General UI settings
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(tooltip-mode -1)
+(show-paren-mode t)
+(column-number-mode t)
+
+;; Caret settings
+(blink-cursor-mode -1)
+(setq-default cursor-type 'box)
+
+;; Completion settings
+(ido-mode t)
+(ido-everywhere t)
+
+;; Global indentation settings
+(setq-default indent-tabs-mode nil) ; indent with spaces
