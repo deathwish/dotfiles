@@ -197,3 +197,8 @@
 
 ;; Global indentation settings
 (setq-default indent-tabs-mode nil) ; indent with spaces
+
+;; reload buffers changed on disk without unsaved changes
+(setq auto-revert-verbose nil) ; All the "reverting buffer foo" messages are _really_ distracting.
+(setq auto-revert-interval 3)
+(global-auto-revert-mode 1)
