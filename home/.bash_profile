@@ -10,11 +10,6 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d ~/bin ] ; then
-    PATH=~/bin:"${PATH}"
-fi
-
 # do the same with MANPATH
 if [ -d ~/man ]; then
     MANPATH=~/man${MANPATH:-:}

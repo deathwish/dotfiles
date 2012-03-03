@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # EC2 tools
-export EC2_HOME="#{HOME}/packages/ec2-ami-tools-1.3-45758"
+export EC2_HOME="${HOME}/packages/ec2-ami-tools-1.3-45758"
 export PATH="${PATH}:${EC2_HOME}/bin"
 
 # scala
