@@ -10,6 +10,7 @@ br = branch
 reup = stash
 smoke = stash pop
 coathanger = rebase --abort
+some = rebase --continue
 handy = rebase origin
 fucked = rebase --interactive origin
 ff = merge --ff-only
