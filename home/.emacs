@@ -127,6 +127,8 @@
          rvm
          tuareg-mode
          feature-mode
+         color-theme
+         color-theme-solarized
          )
 	   (mapcar 'el-get-source-name el-get-sources)))
 
@@ -195,6 +197,9 @@
 (tooltip-mode -1)
 (show-paren-mode t)
 (column-number-mode t)
+
+;; Theme settings. Should these be in color theme initializers?
+(color-theme-solarized-dark)
 
 ;; Caret settings
 (blink-cursor-mode -1)
