@@ -130,6 +130,7 @@
          color-theme
          color-theme-solarized
          evil
+         yaml-mode
          )
 	   (mapcar 'el-get-source-name el-get-sources)))
 
