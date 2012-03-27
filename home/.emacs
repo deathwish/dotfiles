@@ -129,6 +129,7 @@
          feature-mode
          color-theme
          color-theme-solarized
+         evil
          )
 	   (mapcar 'el-get-source-name el-get-sources)))
 
