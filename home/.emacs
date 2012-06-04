@@ -140,7 +140,41 @@
 (if (boundp 'aquamacs-version)
 	(progn
 	  ;; No out of the box ctags here.
-	  (defvar semantic-ectag-program "/usr/local/Cellar/ctags/5.8/bin/ctags")))
+	  (defvar semantic-ectag-program "/usr/local/Cellar/ctags/5.8/bin/ctags")
+
+      ;; Make Aquamacs behave like FSF Emacs.
+      ;; Mostly copied from http://www.emacswiki.org/emacs/AquamacsEmacsCompatibilitySettings
+      ;; Key bindings
+      (osx-key-mode -1)  ; no Mac-specific key bindings
+      (unless window-system   ;; in TTY (terminal) mode
+        (normal-erase-is-backspace-mode nil)
+        (set-face-inverse-video-p 'mode-line-inactive t))
+
+      (setq
+       ns-command-modifier 'meta        ; Apple/Command key is Meta
+       ns-alternate-modifier nil        ; Option is the Mac Option key
+       ns-use-mac-modifier-symbols nil  ; display standard Emacs (and not standard Mac) modifier symbols)
+       )
+
+      ;; Persistency and modes:
+      (setq
+       aquamacs-scratch-file nil                        ; do not save scratch file across sessions
+       initial-major-mode 'emacs-lisp-mode              ; *scratch* shows up in emacs-lisp-mode
+       )
+
+      ;; Frame and window management:
+      (tabbar-mode -1)		     ; no tabbar
+      (one-buffer-one-frame-mode -1)       ; no one-buffer-per-frame
+      (setq special-display-regexps nil)   ; do not open certain buffers in special windows/frames
+
+      ;; Appearance
+      (aquamacs-autoface-mode -1)                                ; no mode-specific faces, everything in Monaco
+      (set-face-attribute 'mode-line nil :inherit 'unspecified) ; show modeline in Monaco
+      (set-face-attribute 'echo-area nil :family 'unspecified)  ; show echo area in Monaco
+
+      ;; Editing
+      (cua-mode -1)
+      (setq x-select-enable-clipboard t)))
 
 (if (load "folding" 'nomessage 'noerror)
 	(folding-mode-add-find-file-hook))
