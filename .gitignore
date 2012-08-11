@@ -1,4 +1,5 @@
 *~
+/home/.bash.d/cache/*
 /home/.bash.d/localhost/*
 /home/.emacs.d/auto-save-list
 /home/.emacs.d/el-get
