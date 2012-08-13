@@ -127,6 +127,7 @@
          rvm
          tuareg-mode
          feature-mode
+         markdown-mode
          color-theme
          color-theme-solarized
          evil
