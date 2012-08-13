@@ -1,4 +1,4 @@
 #!/bin/bash
 
-alias ls='gls'
+alias ls='gls --color=auto'
 alias sed='gsed'
