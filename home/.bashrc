@@ -38,6 +38,7 @@ load_cached_configuration() {
 		        then
                     source $CONFIG_PATH
 			        cat $CONFIG_PATH >> $CACHED_CONFIG
+                    echo '' >> $CACHED_CONFIG # Ensure correctness regardless of trailing newline
 		        fi
 	        done
         done
