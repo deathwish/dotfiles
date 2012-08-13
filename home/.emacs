@@ -234,6 +234,9 @@
 (tooltip-mode -1)
 (show-paren-mode t)
 (column-number-mode t)
+(setq display-time-24hr-format t)
+(setq display-time-day-and-date t)
+(display-time)
 
 ;; Theme settings. Should these be in color theme initializers?
 (color-theme-solarized-dark)
