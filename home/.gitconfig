@@ -14,6 +14,7 @@ some = rebase --continue
 handy = rebase origin
 fucked = rebase --interactive origin
 ff = merge --ff-only
+pull = pull --rebase
 
 [user]
 	name = Lance Cooper
