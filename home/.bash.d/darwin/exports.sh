@@ -1,3 +1,3 @@
 #!/bin/bash
 
-export PATH="${PATH}:/usr/local/mysql/bin/"
+export PATH="/Applications/Aquamacs.app/Contents/MacOS/bin:${PATH}:/usr/local/mysql/bin"
