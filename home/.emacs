@@ -256,3 +256,6 @@
 (setq auto-revert-verbose nil) ; All the "reverting buffer foo" messages are _really_ distracting.
 (setq auto-revert-interval 3)
 (global-auto-revert-mode 1)
+
+;; Mark settings
+(transient-mark-mode -1)
