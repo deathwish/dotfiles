@@ -15,6 +15,7 @@ handy = rebase origin
 fucked = rebase --interactive origin
 ff = merge --ff-only
 pull = pull --rebase
+slog = shortlog
 
 [user]
 	name = Lance Cooper
