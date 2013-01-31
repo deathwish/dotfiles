@@ -50,6 +50,11 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(default ((t (:stipple nil :background "#999999" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :family "ProggySquareTTSZ")))))
+ '(mumamo-background-chunk-major ((t nil)))
+ '(mumamo-background-chunk-submode1 ((t nil)))
+ '(mumamo-background-chunk-submode2 ((t nil)))
+ '(mumamo-background-chunk-submode3 ((t nil)))
+ '(mumamo-background-chunk-submode4 ((t nil))))
 
 ;;
 ;; ELPA and el-get auto-initializing wedge
