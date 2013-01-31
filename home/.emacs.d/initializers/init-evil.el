@@ -9,8 +9,6 @@
         (evil-mode t))
     (message "Disabling Evil mode...")
     (dolist (buffer (buffer-list))
-      (save-excursion
-        (set-buffer buffer)
-        (evil-local-mode -1)))
+      (with-current-buffer buffer (evil-local-mode -1)))
     (evil-mode -1)))
 (global-set-key "\C-c\C-v" 'toggle-evil-mode)
