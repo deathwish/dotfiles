@@ -13,9 +13,12 @@ coathanger = rebase --abort
 some = rebase --continue
 handy = rebase origin
 fucked = rebase --interactive origin
+incall = !git fetch && git handy
 ff = merge --ff-only
 pull = pull --rebase
 slog = shortlog
+kgb = commit -a --amend
+isis = commit --amend
 
 [user]
 	name = Lance Cooper
