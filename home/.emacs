@@ -31,8 +31,6 @@
  '(fringe-mode 0 nil (fringe))
  '(global-font-lock-mode t nil (font-lock))
  '(home-end-enable t)
- '(js2-basic-offset 3)
- '(js2-cleanup-whitespace t)
  '(mouse-wheel-mode t nil (mwheel))
  '(normal-erase-is-backspace t)
  '(nxml-auto-insert-xml-declaration-flag t)
