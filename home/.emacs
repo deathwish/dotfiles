@@ -49,7 +49,7 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(default ((t (:stipple nil :background "#999999" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :family "ProggySquareTTSZ")))))
+ '(default ((t (:stipple nil :background "#999999" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :family "ProggySquareTTSZ"))))
  '(mumamo-background-chunk-major ((t nil)))
  '(mumamo-background-chunk-submode1 ((t nil)))
  '(mumamo-background-chunk-submode2 ((t nil)))
@@ -244,7 +244,7 @@
 ;; Theme settings. Should these be in color theme initializers?
 (color-theme-solarized-dark)
 
-;; Caret settings
+;; Caret and mark settings
 (blink-cursor-mode -1)
 (setq-default cursor-type 'box)
 
