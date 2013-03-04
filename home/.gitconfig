@@ -16,6 +16,7 @@ fucked = rebase --interactive origin
 incall = !git fetch && git handy
 ff = merge --ff-only
 pull = pull --rebase
+sdiff = diff --staged
 slog = shortlog
 kgb = commit -a --amend
 isis = commit --amend
