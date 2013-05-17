@@ -123,6 +123,8 @@
          color-theme
          color-theme-solarized
          evil
+         ruby-electric
+         sass-mode
          yaml-mode
          )
 	   (mapcar 'el-get-source-name el-get-sources)))
