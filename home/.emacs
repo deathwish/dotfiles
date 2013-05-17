@@ -105,12 +105,6 @@
 ;; extra recipes for packages unknown to el-get (yet)
 (setq el-get-sources
 	  '((:name css-mode :type elpa)
-		(:name js2-mode-mooz
-			   :type git
-			   :url "git://github.com/mooz/js2-mode.git"
-			   :load "js2-mode.el"
-			   :compile ("js2-mode.el")
-			   :features js2-mode)
 		(:name feature-mode
 			   :type git
 			   :url "git://github.com/michaelklishin/cucumber.el"
@@ -122,8 +116,8 @@
 (setq my-el-get-packages
 	  (append
        '(css-mode
-         js2-mode-mooz
          ecb
+         js2-mode
          nxhtml
          rinari
          scala-mode
