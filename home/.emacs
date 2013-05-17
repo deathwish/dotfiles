@@ -77,12 +77,10 @@
 
 (if (require 'package nil t)
     (progn
-      ;; Emacs 24+ includes ELPA, but requires some extra setup
-      ;; to use the (better) tromey repo
-      (if (>= emacs-major-version 24)
-          (setq package-archives
-                (cons '("tromey" . "http://tromey.com/elpa/")
-                package-archives)))
+	  (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+							   ("marmalade" . "http://marmalade-repo.org/packages/")
+							   ("tromey" . "http://tromey.com/elpa/")
+							   ("melpa" . "http://melpa.milkbox.net/packages/")))
       (package-initialize))
   (install-elpa))
 
