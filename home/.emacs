@@ -1,9 +1,8 @@
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(auto-compression-mode t nil (jka-compr))
  '(c-basic-offset 4)
  '(c-label-minimum-indentation 4)
@@ -13,7 +12,6 @@
  '(compilation-scroll-output t)
  '(compilation-skip-threshold 2)
  '(compilation-window-height 10)
-;; '(ctypes-install t nil (ctypes))
  '(current-language-environment "English")
  '(default-input-method "latin-1-prefix")
  '(display-battery-mode t)
@@ -24,7 +22,7 @@
  '(ecb-options-version "2.40")
  '(ecb-other-window-behavior (quote edit-and-compile))
  '(ecb-redraw-layout-quickly t)
- '(ecb-source-path (quote (("/home/lance/ken/visken-rails" "visken-rails") (#("/" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) #("/" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu"))) (#("/home/lance/src/futilepleasures-rails" 0 37 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "futilepleasures-rails") ("/home/lance/src/bidding/trunk" "bidding-trunk") (#("/home/lance/src/futilepleasures/trunk" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu") 1 37 nil) "futilepleasures-trunk") (#("/home/lance/src/toca_sn/trunk/tsn" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu") 1 33 nil) "tsn_trunk") (#("/home/lance/src/bambera/bambera" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu") 1 31 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "bambera") ("/home/lance/ken/visken-rails" "visken-rails") (#("/home/lance/src/tastefulprawn_repo" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu") 1 34 nil) "tastefulprawn") (#("/home/lance/src/ethnoken/trunk/visken-rails" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu") 1 43 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "visken-rails-trunk") (#("/home/lance/src/tastefulprawn" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu") 1 29 nil) "tastefulprawn"))))
+ '(ecb-source-path (quote (("/home/lance/ken/visken-rails" "visken-rails") (#("/" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) #("/" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu"))) (#("/home/lance/src/futilepleasures-rails" 0 37 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "futilepleasures-rails") ("/home/lance/src/bidding/trunk" "bidding-trunk") (#("/home/lance/src/futilepleasures/trunk" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "futilepleasures-trunk") (#("/home/lance/src/toca_sn/trunk/tsn" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "tsn_trunk") (#("/home/lance/src/bambera/bambera" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu") 1 31 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "bambera") ("/home/lance/ken/visken-rails" "visken-rails") (#("/home/lance/src/tastefulprawn_repo" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "tastefulprawn") (#("/home/lance/src/ethnoken/trunk/visken-rails" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu") 1 43 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "visken-rails-trunk") (#("/home/lance/src/tastefulprawn" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "tastefulprawn"))))
  '(ecb-vc-supported-backends (quote ((ecb-vc-dir-managed-by-CVS . ecb-vc-state) (ecb-vc-dir-managed-by-RCS . ecb-vc-state) (ecb-vc-dir-managed-by-SCCS . ecb-vc-state) (ecb-vc-dir-managed-by-SVN . ecb-vc-recompute-state) (ecb-vc-dir-managed-by-GIT . ecb-vc-state) (ecb-vc-dir-managed-by-MTN . ecb-vc-state))))
  '(ecb-windows-width 0.2)
  '(frame-background-mode (quote dark))
@@ -35,7 +33,6 @@
  '(normal-erase-is-backspace t)
  '(nxml-auto-insert-xml-declaration-flag t)
  '(nxml-slash-auto-complete-flag t)
-;; '(perldoc-define-F1 t nil (perldoc))
  '(scroll-bar-mode (quote right))
  '(size-indication-mode t)
  '(speedbar-track-mouse-flag t)
@@ -45,10 +42,10 @@
  '(transient-mark-mode t)
  '(woman-use-own-frame nil))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(default ((t (:stipple nil :background "#999999" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :family "ProggySquareTTSZ"))))
  '(mumamo-background-chunk-major ((t nil)))
  '(mumamo-background-chunk-submode1 ((t nil)))
@@ -65,12 +62,12 @@
 ;; http://tromey.com/elpa/install.html
 (defun eval-url (url)
   (let ((buffer (url-retrieve-synchronously url)))
-  (save-excursion
-    (set-buffer buffer)
-    (goto-char (point-min))
-    (re-search-forward "^$" nil 'move)
-    (eval-region (point) (point-max))
-    (kill-buffer (current-buffer)))))
+    (save-excursion
+      (set-buffer buffer)
+      (goto-char (point-min))
+      (re-search-forward "^$" nil 'move)
+      (eval-region (point) (point-max))
+      (kill-buffer (current-buffer)))))
 
 ;; Load ELPA
 (add-to-list 'load-path "~/.emacs.d/elpa")
