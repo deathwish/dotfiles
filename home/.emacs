@@ -123,7 +123,6 @@
          color-theme
          color-theme-solarized
          evil
-         ruby-electric
          sass-mode
          yaml-mode
          )
@@ -202,8 +201,6 @@
 (defun my-ruby-mode-hook ()
   (font-lock-mode t)
   (setq standard-indent 2)
-  (require 'ruby-electric)
-  (ruby-electric-mode t)
   (define-key ruby-mode-map "\C-c\C-a" 'ruby-eval-buffer))
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
 
