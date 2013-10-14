@@ -26,7 +26,7 @@ load_cached_configuration() {
     CACHED_CONFIG="${HOME}/.bash.d/cache/${SESSION_TYPE}.sh"
     if [[ ! -f $CACHED_CONFIG || -n "$(find -L ~/.bash.d -newermm ${CACHED_CONFIG} '(' -type f -name '*.sh' -o -type d ')')" ]]
     then
-	    CONFIG_TYPES=( `uname | tr 'A-Z' 'a-z'` `hostname` 'localhost' '' )
+	    CONFIG_TYPES=( `uname | tr 'A-Z' 'a-z'` `hostname -s` 'localhost' '' )
         CONFIG_NAMES=("${@}")
         rm -f $CACHED_CONFIG
         for CONFIG_TYPE in "${CONFIG_TYPES[@]}"
