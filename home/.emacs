@@ -262,3 +262,9 @@
 
 ;; Mark settings
 (transient-mark-mode -1)
+
+
+;; Windowing settings
+;; http://stackoverflow.com/questions/2081577/setting-emacs-split-to-horizontal
+;; (setq split-height-threshold nil)
+;; (setq split-width-threshold 0)
