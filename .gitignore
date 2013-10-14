@@ -1,6 +1,9 @@
 *~
 /home/.bash.d/cache/*
 /home/.bash.d/localhost/*
+/home/.elinks/cookies
+/home/.elinks/globhist
+/home/.elinks/gotohist
 /home/.emacs.d/auto-save-list
 /home/.emacs.d/ede-projects.el
 /home/.emacs.d/el-get
