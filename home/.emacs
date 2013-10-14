@@ -235,6 +235,7 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (tooltip-mode -1)
+(menu-bar-mode -1)
 (show-paren-mode t)
 (column-number-mode t)
 (setq display-time-24hr-format t)
