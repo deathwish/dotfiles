@@ -70,10 +70,10 @@
       (kill-buffer (current-buffer)))))
 
 ;; Load ELPA
-(add-to-list 'load-path "~/.emacs.d/elpa")
+;; (add-to-list 'load-path "~/.emacs.d/elpa")
 
-(defun install-elpa ()
-  (eval-url "http://tromey.com/elpa/package-install.el"))
+;;(defun install-elpa ()
+;;  (eval-url "http://tromey.com/elpa/package-install.el"))
 
 (if (require 'package nil t)
     (progn
