@@ -5,4 +5,5 @@
 /home/.emacs.d/el-get
 /home/.emacs.d/elpa
 /home/.emacs.d/thumbs
+/home/.emacs.d/url
 *.elc
