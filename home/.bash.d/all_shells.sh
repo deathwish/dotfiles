@@ -6,5 +6,12 @@ export GEM_HOME="${HOME}/.gem"
 mkdir -p "${GEM_HOME}"
 export PATH="${PATH}:${GEM_HOME}/bin"
 
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+if [[ -s "${HOME}/.rvm/scripts/rvm" ]]
+then
+    # Load RVM into a shell session *as a function*
+    source "${HOME}/.rvm/scripts/rvm"
+elif [[ -d "${HOME}/.rbenv" ]]
+then
+    export PATH="${HOME}/.rbenv/bin:${PATH}"
+    eval "$(rbenv init -)"
+fi
