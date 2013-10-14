@@ -111,8 +111,8 @@
 (setq my-el-get-packages
 	  (append
        '(css-mode
-         ecb
          js2-mode
+;        ecb
          nxhtml
          rinari
          scala-mode
