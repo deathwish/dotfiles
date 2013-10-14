@@ -41,6 +41,7 @@ load_cached_configuration() {
                     echo '' >> $CACHED_CONFIG # Ensure correctness regardless of trailing newline
 		        fi
 	        done
+            sync # Make sure the file gets fully written out to disk.
         done
     else
         source $CACHED_CONFIG
