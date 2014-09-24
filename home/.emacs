@@ -100,6 +100,7 @@
 ;; extra recipes for packages unknown to el-get (yet)
 (setq el-get-sources
 	  '((:name css-mode :type elpa)
+            (:name web-mode :type elpa)
 		(:name feature-mode
 			   :type git
 			   :url "git://github.com/michaelklishin/cucumber.el"
@@ -113,7 +114,6 @@
        '(css-mode
          js2-mode
 ;        ecb
-         nxhtml
          rinari
          scala-mode
          rvm
@@ -126,6 +126,7 @@
          sass-mode
          yaml-mode
          go-mode
+         web-mode
          )
 	   (mapcar 'el-get-source-name el-get-sources)))
 
@@ -215,17 +216,6 @@
 ;;(load-file "~/.emacs.d/cedet-1.0/contrib/semantic-ectag-scala.el")
 (require 'cedet)
 (global-ede-mode 1) ; Enable the Project management system
-
-;; MuMaMo hax
-;; See https://gist.github.com/tkf/3951163
-;; Workaround the annoying warnings:
-;; Warning (mumamo-per-buffer-local-vars):
-;; Already 'permanent-local t: buffer-file-name
-(when (and (>= emacs-major-version 24)
-           (>= emacs-minor-version 2))
-  (eval-after-load "mumamo"
-    '(setq mumamo-per-buffer-local-vars
-           (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
 
 ;; Basic settings
 (setq inhibit-startup-message t)
