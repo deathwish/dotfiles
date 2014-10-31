@@ -13,8 +13,9 @@
 
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
+  (set-variable 'indent-tabs-mode t)
+  (setq web-mode-markup-indent-offset 4)
+  (setq web-mode-css-indent-offset 4)
   (setq web-mode-enable-auto-pairing t)
   (setq web-mode-enable-css-colorization t)
 )

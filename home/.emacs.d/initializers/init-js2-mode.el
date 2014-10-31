@@ -5,7 +5,11 @@
 
 ;; See http://yoo2080.wordpress.com/2012/03/15/js2-mode-setup-recommendation/
 (setq js2-missing-semi-one-line-override t)
-(setq-default js2-basic-offset 2) ; 2 spaces for indentation (if you prefer 2 spaces instead of default 4 spaces for tab)
+(setq-default js2-basic-offset 4) ; 2 spaces for indentation (if you prefer 2 spaces instead of default 4 spaces for tab)
 (setq js2-bounce-indent-p t)
 (setq js2-cleanup-whitespace t)
 (setq js2-global-externs nil)
+
+(setq js2-mode-hook
+  '(lambda () (progn
+    (set-variable 'indent-tabs-mode t))))
