@@ -196,6 +196,10 @@
 (add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Vagrantfile$" . ruby-mode))
 
+;; Needed for electric blocks, but burns CPU on certain files due to questionable grammar,
+;; so disable for the time being.
+(setq ruby-use-smie nil)
+
 (defun ruby-eval-buffer () (interactive)
   "Evaluate the buffer with ruby."
   (shell-command-on-region (point-min) (point-max) "ruby"))
