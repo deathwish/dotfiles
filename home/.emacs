@@ -254,6 +254,14 @@
 ;; Mark settings
 (transient-mark-mode -1)
 
+;; comint settings
+;; see http://stackoverflow.com/questions/13397737/ansi-coloring-in-compilation-mode
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  (toggle-read-only)
+  (ansi-color-apply-on-region compilation-filter-start (point))
+  (toggle-read-only))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
 ;; Windowing settings
 ;; http://stackoverflow.com/questions/2081577/setting-emacs-split-to-horizontal
