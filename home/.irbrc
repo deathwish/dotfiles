@@ -5,8 +5,8 @@ if ENV['RAILS_ENV']
       Authorization.current_user = User.first
     rescue Exception => e
     end
-    logger = Logger.new(STDOUT)
-    ActiveRecord::Base.logger = logger
-    ActiveResource::Base.logger = logger
+    #logger = Logger.new(STDOUT)
+    #ActiveRecord::Base.logger = logger
+    #ActiveResource::Base.logger = logger
   end
 end
