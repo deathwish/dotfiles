@@ -53,6 +53,13 @@
  '(mumamo-background-chunk-submode3 ((t nil)))
  '(mumamo-background-chunk-submode4 ((t nil))))
 
+;; Emacs 27 has deprecated the cl package in favor of cl-lib, but we use some old stuff.
+;; https://github.com/kiwanami/emacs-epc/issues/35
+;; to check if it's still needed:
+;; (require 'loadhist)
+;; (file-dependents (feature-file 'cl))
+(setq byte-compile-warnings '(cl-functions))
+
 ;;
 ;; ELPA and el-get auto-initializing wedge
 ;; See http://bytes.inso.cc/2011/08/13/auto-installing-packages-in-emacs-with-elpa-and-el-get/
