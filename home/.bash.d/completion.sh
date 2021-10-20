@@ -8,13 +8,13 @@ cd () {
 	then
 		complete -W "SAME AS YOURS above" rake
 	else
-		complete -r rake
+		complete -r rake 2>/dev/null
 	fi
 
 	if [ -f ./Capfile ]
 	then
 		complete -W "$(cap -T | grep '#' | awk 'NR != 1 {print $2}')" cap
 	else
-		complete -r cap
+		complete -r cap 2>/dev/null
 	fi
 }
