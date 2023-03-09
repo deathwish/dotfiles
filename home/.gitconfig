@@ -23,7 +23,7 @@ isis = commit --amend
 
 [user]
 	name = Lance Cooper
-	email = lance@struktur.de
+	email = lcooper@eligoenergy.com
 [github]
 	user = deathwish
 [push]
