@@ -11,7 +11,7 @@ reup = stash
 smoke = stash pop
 coathanger = rebase --abort
 some = rebase --continue
-handy = rebase origin
+handy = !git rebase origin/$(git rev-parse --abbrev-ref HEAD)
 fucked = rebase --interactive origin
 incall = !git fetch && git handy
 ff = merge --ff-only
@@ -20,6 +20,7 @@ sdiff = diff --staged
 slog = shortlog
 kgb = commit -a --amend
 isis = commit --amend
+#ciaclean = !git branch --merged origin/main | grep -vE "^\s*(\*|master|main)" | xargs -n 1 git branch -d
 
 [user]
 	name = Lance Cooper
@@ -30,3 +31,5 @@ isis = commit --amend
 	default = current
 [apply]
 	whitespace = fix
+[credential "https://git.heroku.com"]
+	helper = !heroku git:credentials
