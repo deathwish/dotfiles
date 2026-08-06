@@ -5,7 +5,7 @@ alias n='nano'
 alias valentine='ssh -X rancor.homeunix.org'
 
 # only alias ls if an override file hasn't already done so.
-alias -p ls 2>&1 > /dev/null
+__LS_IS_ALIAS="$(alias -p ls 2>&1 > /dev/null)"
 if [ $? == 1 ]
 then
     alias ls='ls --color=auto'
