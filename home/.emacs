@@ -16,16 +16,65 @@
  '(default-input-method "latin-1-prefix")
  '(display-battery-mode t)
  '(ecb-compile-window-height 5)
- '(ecb-compile-window-temporally-enlarge (quote both))
- '(ecb-compile-window-width (quote edit-window))
+ '(ecb-compile-window-temporally-enlarge 'both)
+ '(ecb-compile-window-width 'edit-window)
  '(ecb-enlarged-compilation-window-max-height 0.4)
  '(ecb-options-version "2.40")
- '(ecb-other-window-behavior (quote edit-and-compile))
+ '(ecb-other-window-behavior 'edit-and-compile)
  '(ecb-redraw-layout-quickly t)
- '(ecb-source-path (quote (("/home/lance/ken/visken-rails" "visken-rails") (#("/" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) #("/" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu"))) (#("/home/lance/src/futilepleasures-rails" 0 37 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "futilepleasures-rails") ("/home/lance/src/bidding/trunk" "bidding-trunk") (#("/home/lance/src/futilepleasures/trunk" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "futilepleasures-trunk") (#("/home/lance/src/toca_sn/trunk/tsn" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "tsn_trunk") (#("/home/lance/src/bambera/bambera" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu") 1 31 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "bambera") ("/home/lance/ken/visken-rails" "visken-rails") (#("/home/lance/src/tastefulprawn_repo" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "tastefulprawn") (#("/home/lance/src/ethnoken/trunk/visken-rails" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu") 1 43 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "visken-rails-trunk") (#("/home/lance/src/tastefulprawn" 0 1 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "tastefulprawn"))))
- '(ecb-vc-supported-backends (quote ((ecb-vc-dir-managed-by-CVS . ecb-vc-state) (ecb-vc-dir-managed-by-RCS . ecb-vc-state) (ecb-vc-dir-managed-by-SCCS . ecb-vc-state) (ecb-vc-dir-managed-by-SVN . ecb-vc-recompute-state) (ecb-vc-dir-managed-by-GIT . ecb-vc-state) (ecb-vc-dir-managed-by-MTN . ecb-vc-state))))
+ '(ecb-source-path
+   '(("/home/lance/ken/visken-rails" "visken-rails")
+     (#("/" 0 1
+        (help-echo
+         "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu"))
+      #("/" 0 1
+        (help-echo
+         "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")))
+     (#("/home/lance/src/futilepleasures-rails" 0 37
+        (help-echo
+         "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu"))
+      "futilepleasures-rails")
+     ("/home/lance/src/bidding/trunk" "bidding-trunk")
+     (#("/home/lance/src/futilepleasures/trunk" 0 1
+        (help-echo
+         "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu"))
+      "futilepleasures-trunk")
+     (#("/home/lance/src/toca_sn/trunk/tsn" 0 1
+        (help-echo
+         "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu"))
+      "tsn_trunk")
+     (#("/home/lance/src/bambera/bambera" 0 1
+        (help-echo
+         "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")
+        1 31
+        (help-echo
+         "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu"))
+      "bambera")
+     ("/home/lance/ken/visken-rails" "visken-rails")
+     (#("/home/lance/src/tastefulprawn_repo" 0 1
+        (help-echo
+         "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu"))
+      "tastefulprawn")
+     (#("/home/lance/src/ethnoken/trunk/visken-rails" 0 1
+        (help-echo
+         "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")
+        1 43
+        (help-echo
+         "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu"))
+      "visken-rails-trunk")
+     (#("/home/lance/src/tastefulprawn" 0 1
+        (help-echo
+         "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu"))
+      "tastefulprawn")))
+ '(ecb-vc-supported-backends
+   '((ecb-vc-dir-managed-by-CVS . ecb-vc-state)
+     (ecb-vc-dir-managed-by-RCS . ecb-vc-state)
+     (ecb-vc-dir-managed-by-SCCS . ecb-vc-state)
+     (ecb-vc-dir-managed-by-SVN . ecb-vc-recompute-state)
+     (ecb-vc-dir-managed-by-GIT . ecb-vc-state)
+     (ecb-vc-dir-managed-by-MTN . ecb-vc-state)))
  '(ecb-windows-width 0.2)
- '(frame-background-mode (quote dark))
+ '(frame-background-mode 'dark)
  '(fringe-mode 0 nil (fringe))
  '(global-font-lock-mode t nil (font-lock))
  '(home-end-enable t)
@@ -33,7 +82,10 @@
  '(normal-erase-is-backspace t)
  '(nxml-auto-insert-xml-declaration-flag t)
  '(nxml-slash-auto-complete-flag t)
- '(scroll-bar-mode (quote right))
+ '(package-selected-packages
+   '(ai-code coffee-mode compat css-mode rinari ruby-compilation
+             terraform-mode vterm web-mode))
+ '(scroll-bar-mode 'right)
  '(size-indication-mode t)
  '(speedbar-track-mouse-flag t)
  '(standard-indent 4)
@@ -85,7 +137,7 @@
 (if (require 'package nil t)
     (progn
 	  (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-							   ("marmalade" . "http://marmalade-repo.org/packages/")
+;							   ("marmalade" . "http://marmalade-repo.org/packages/")
 							   ("tromey" . "http://tromey.com/elpa/")
 							   ("melpa" . "http://melpa.org/packages/")))
       (package-initialize))
@@ -121,7 +173,7 @@
        '(css-mode
          js2-mode
 ;        ecb
-         rinari
+;         rinari
          scala-mode
          rvm
          tuareg-mode
@@ -129,11 +181,14 @@
          markdown-mode
          color-theme
          color-theme-solarized
-         evil
+;        evil
          sass-mode
          yaml-mode
          go-mode
          web-mode
+;;         cond-let ; dep for magit, may end up in core.
+;;         magit
+         ;;         coffee-mode
          )
 	   (mapcar 'el-get-source-name el-get-sources)))
 
@@ -228,6 +283,30 @@
 (require 'cedet)
 (global-ede-mode 1) ; Enable the Project management system
 
+;; ai-code-interface.el
+(use-package ai-code
+  ;; :straight (:host github :repo "tninja/ai-code-interface.el") ;; if you want to use straight to install, no need to have MELPA setting above
+  :config
+  ;; use codex as backend, other options are 'claude-code, 'gemini, 'github-copilot-cli, 'opencode, 'grok, 'cursor, 'kiro, 'codebuddy, 'aider, 'agent-shell, 'claude-code-ide, 'claude-code-el
+  (ai-code-set-backend 'codex)
+  ;; Enable global keybinding for the main menu
+  (global-set-key (kbd "C-c a") #'ai-code-menu)
+  ;; Optional: Use eat if you prefer, by default it is vterm
+  ;; (setq ai-code-backends-infra-terminal-backend 'eat) ;; config for native CLI backends. for external backends such as agent-shell, claude-code-ide.el and claude-code.el, please check their own config
+  ;; Optional: Enable @ file completion in comments and AI sessions
+  (ai-code-prompt-filepath-completion-mode 1)
+  ;; Optional: Ask AI to run test after code changes, for a tighter build-test loop
+  ;(setq ai-code-auto-test-type 'ask-me)
+  ;; Optional: In AI session buffers, SPC in Evil normal state triggers the prompt-enter UI
+  ;(with-eval-after-load 'evil (ai-code-backends-infra-evil-setup))
+  ;; Optional: Turn on auto-revert buffer, so that the AI code change automatically appears in the buffer
+  ;(global-auto-revert-mode 1)
+  ;(setq auto-revert-interval 1) ;; set to 1 second for faster update
+  ;; Optional: Set up Magit integration for AI commands in Magit popups
+  (with-eval-after-load 'magit
+    (ai-code-magit-setup-transients)))
+
+
 ;; Basic settings
 (setq inhibit-startup-message t)
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -278,3 +357,5 @@
 ;; http://stackoverflow.com/questions/2081577/setting-emacs-split-to-horizontal
 ;; (setq split-height-threshold nil)
 ;; (setq split-width-threshold 0)
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
